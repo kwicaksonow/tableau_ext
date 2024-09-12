@@ -1,3 +1,7 @@
-components: []
+components:
+- layout_properties: {grid_position: 'ASJPNP,TEIEBZ'}
+  name: label_1
+  properties: {text: This is a tableau extension}
+  type: Label
 container: {type: ColumnPanel}
 is_package: true
