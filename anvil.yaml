@@ -5,7 +5,7 @@ dependencies:
 - app_id: 4WJSBYGUAK63RAJO
   version: {version_tag: v1.0.0}
 metadata: {}
-name: 'Clone of Cloneable: Chat Tutorial Starting Point'
+name: 'Clone of Cloneable: Chat'
 native_deps: {head_html: ''}
 package_name: Tableau_Extension
 runtime_options: {client_version: '3', server_spec: null, server_version: python3-full, version: 2}
