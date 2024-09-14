@@ -23,19 +23,23 @@ class Main(MainTemplate):
     if len(user_selections) != 0:
         self._data = user_selections
 
-  def btn_save_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    
+  def fetchSummary(self):
     msg = "Wait"
     Notification(msg).show()
     self.Summary.text = ''
     dataSummary = anvil.server.call('generateDataSummary', prompt=self.tb_comment.text, data=self._data)
     self.Summary.visible = True
     self.Summary.text = dataSummary
+    self._data = ''
+
+  def btn_save_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.fetchSummary()
 
   def Clear_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.Summary.text = ''
     self.tb_comment.text = ''
+    self._data = ''
     self.Summary.visible = False
     
