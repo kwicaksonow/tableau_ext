@@ -23,6 +23,7 @@ class Main(MainTemplate):
         self.happinessScore = None
     else:
         record = user_selection[0]
+        print(user_selection)
         self.country_name = record['Country']
         self.happinessScore = record['SUM(Happiness Score)']
 
