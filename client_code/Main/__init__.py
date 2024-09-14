@@ -1,5 +1,6 @@
 from ._anvil_designer import MainTemplate
 from anvil import *
+import anvil.server
 from anvil.tables import app_tables
 from anvil import tableau
 from datetime import datetime
@@ -13,23 +14,28 @@ class Main(MainTemplate):
     self.happinessScore = None
     self.logged_in_user = None
     self.init_components(**properties)
+    self.Summary.visible = False
     dashboard.register_event_handler('selection_changed', self.selection_changed_event_handler)
 
   def selection_changed_event_handler(self, event):
-    user_selection = event.worksheet.get_selected_marks()
+    user_selections = event.worksheet.get_selected_marks()
 
-    if len(user_selection) == 0:
-        self.country_name = None
-        self.happinessScore = None
-    else:
-        record = user_selection[0]
-        print(user_selection)
-        self.country_name = record['Country']
-        self.happinessScore = record['SUM(Happiness Score)']
+    if len(user_selections) != 0:
+        self._data = user_selections
 
   def btn_save_click(self, **event_args):
     """This method is called when the button is clicked"""
     
-    msg = f"Country: {self.country_name}\nHappinessScore: {self.happinessScore}\nComment: {self.tb_comment.text}"
+    msg = "Wait"
     Notification(msg).show()
-    self.tb_comment.text = ""
+    self.Summary.text = ''
+    dataSummary = anvil.server.call('generateDataSummary', prompt=self.tb_comment.text, data=self._data)
+    self.Summary.visible = True
+    self.Summary.text = dataSummary
+
+  def Clear_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.Summary.text = ''
+    self.tb_comment.text = ''
+    self.Summary.visible = False
+    

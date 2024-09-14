@@ -1,12 +1,22 @@
 components:
-- layout_properties: {grid_position: 'PCFDLM,EQNUYB'}
+- event_bindings: {}
+  layout_properties: {grid_position: 'PCFDLM,EQNUYB'}
   name: tb_comment
-  properties: {placeholder: Add a comment}
+  properties: {placeholder: Ask a question}
   type: TextBox
 - event_bindings: {click: btn_save_click}
   layout_properties: {grid_position: 'HMMDGV,XRAGMT'}
   name: btn_save
-  properties: {role: primary-button, text: Save Comment}
+  properties: {role: primary-button, text: Submit}
   type: Button
+- event_bindings: {click: Clear_click}
+  layout_properties: {grid_position: 'HMMDGV,TVRGXP'}
+  name: Clear
+  properties: {role: secondary-button, text: Clear}
+  type: Button
+- layout_properties: {grid_position: 'KUAWBP,XBZIUU'}
+  name: Summary
+  properties: {}
+  type: Label
 container: {type: ColumnPanel}
 is_package: true
