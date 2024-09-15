@@ -1,4 +1,4 @@
-from ._anvil_designer import MainTemplate
+from ._anvil_designer import client_codeTemplate
 from anvil import *
 import anvil.server
 from anvil.tables import app_tables
@@ -8,7 +8,7 @@ from datetime import datetime
 from trexjacket.api import get_dashboard
 dashboard = get_dashboard()
 
-class Main(MainTemplate):
+class client_code(client_codeTemplate):
   def __init__(self, **properties):
     self.country_name = None
     self.happinessScore = None

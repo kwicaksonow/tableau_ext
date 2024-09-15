@@ -3,8 +3,8 @@ unique_ids:
     loading-spinner.svg: J5U6UONLNUCLWEVY2AXYPUUO6TFROVVH
     theme.css: 4RLFSHRNP6VMHEHAWXGZ7KFS2FXRBZRO
   forms:
-    Main: '167813569041761837667342.62663'
+    client_code: '167813569041761837667342.62663'
   modules: {}
   scripts: {}
   server_modules:
-    ServerModule1: '1726314680291920848997499.0928'
+    server_code: '1726314680291920848997499.0928'
