@@ -5,7 +5,7 @@ dependencies:
 - app_id: 4WJSBYGUAK63RAJO
   version: {version_tag: v1.0.0}
 metadata: {title: Tableau Extension Demo}
-name: Tableau Extension Demo
+name: Tableau Extension Demo (working)
 native_deps: {head_html: ''}
 package_name: Tableau_Extension
 runtime_options:
