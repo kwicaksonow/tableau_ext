@@ -10,9 +10,6 @@ dashboard = get_dashboard()
 
 class client_code(client_codeTemplate):
   def __init__(self, **properties):
-    self.country_name = None
-    self.happinessScore = None
-    self.logged_in_user = None
     self.init_components(**properties)
     self.summary.visible = False
     dashboard.register_event_handler('selection_changed', self.selection_changed_event_handler)
