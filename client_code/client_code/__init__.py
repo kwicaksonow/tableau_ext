@@ -14,7 +14,7 @@ class client_code(client_codeTemplate):
     self.happinessScore = None
     self.logged_in_user = None
     self.init_components(**properties)
-    self.Summary.visible = False
+    self.summary.visible = False
     dashboard.register_event_handler('selection_changed', self.selection_changed_event_handler)
 
   def selection_changed_event_handler(self, event):
@@ -26,20 +26,20 @@ class client_code(client_codeTemplate):
   def fetchSummary(self):
     msg = "Wait"
     Notification(msg).show()
-    self.Summary.text = ''
-    dataSummary = anvil.server.call('generateDataSummary', prompt=self.tb_comment.text, data=self._data)
-    self.Summary.visible = True
-    self.Summary.text = dataSummary
+    self.summary.text = ''
+    dataSummary = anvil.server.call('generateDataSummary', prompt=self.user_question.text, data=self._data)
+    self.summary.visible = True
+    self.summary.text = dataSummary
     self._data = ''
 
-  def btn_save_click(self, **event_args):
+  def btn_submit_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.fetchSummary()
 
-  def Clear_click(self, **event_args):
+  def btn_clear_click(self, **event_args):
     """This method is called when the button is clicked"""
-    self.Summary.text = ''
-    self.tb_comment.text = ''
+    self.summary.text = ''
+    self.user_question.text = ''
     self._data = ''
-    self.Summary.visible = False
+    self.summary.visible = False
     
