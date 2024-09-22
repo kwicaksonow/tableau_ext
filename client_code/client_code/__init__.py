@@ -20,7 +20,8 @@ class client_code(client_codeTemplate):
     if len(user_selections) != 0:
         self._data = user_selections
 
-  def fetchSummary(self):
+  def btn_submit_click(self, **event_args):
+    """This method is called when the button is clicked"""
     msg = "Wait"
     Notification(msg).show()
     self.summary.text = ''
@@ -28,10 +29,6 @@ class client_code(client_codeTemplate):
     self.summary.visible = True
     self.summary.text = dataSummary
     self._data = ''
-
-  def btn_submit_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.fetchSummary()
 
   def btn_clear_click(self, **event_args):
     """This method is called when the button is clicked"""
