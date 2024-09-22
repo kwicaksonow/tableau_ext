@@ -31,7 +31,9 @@ class client_code(client_codeTemplate):
 
   def btn_submit_click(self, **event_args):
     """This method is called when the button is clicked"""
-    self.fetchSummary()
+    # self.fetchSummary()
+    self.summary.visible = True
+    self.summary.text = self.user_question.text
 
   def btn_clear_click(self, **event_args):
     """This method is called when the button is clicked"""
