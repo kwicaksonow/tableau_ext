@@ -41,52 +41,6 @@
 
 # Code for named worksheet
 
-from ._anvil_designer import client_codeTemplate
-from anvil import *
-import anvil.server
-from anvil.tables import app_tables
-from anvil import tableau
-from datetime import datetime
-from trexjacket.api import get_dashboard
-
-class client_code(client_codeTemplate):
-  def __init__(self, **properties):
-    self.init_components(**properties)
-    self.dashboard = get_dashboard()
-    # replace 'Viz' with the name of your worksheet
-    self.chart     = self.dashboard.get_worksheet('Viz')
-
-  def selection_changed_event_handler(self, event):
-    user_selections = event.worksheet.get_selected_marks()
-    if len(user_selections) != 0:
-        self._data = user_selections
-
-  def btn_submit_click(self, **event_args):
-    Notification("Mohon Tunggu").show()
-    self.summary.text = ''
-    # OPTION A: get the aggregated summary data
-    data = self.chart.get_summary_data()
-    # OPTION B: get the full, row‑level data
-    # data = self.chart.get_underlying_data()
-    dataSummary = anvil.server.call(
-      'generateDataSummary',
-      prompt=self.user_question.text,
-      data=data
-    )
-    self.summary.visible = True
-    self.summary.text    = dataSummary
-
-  def btn_clear_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.summary.text = ''
-    self.user_question.text = ''
-    self._data = ''
-    self.summary.visible = False
-
-
-
-# Code for all worksheet
-
 # from ._anvil_designer import client_codeTemplate
 # from anvil import *
 # import anvil.server
@@ -128,3 +82,54 @@ class client_code(client_codeTemplate):
 #     self.user_question.text = ''
 #     self._data = ''
 #     self.summary.visible = False
+
+
+
+# Code for all worksheet
+
+from ._anvil_designer import client_codeTemplate
+from anvil import *
+import anvil.server
+from anvil.tables import app_tables
+from anvil import tableau
+from datetime import datetime
+from trexjacket.api import get_dashboard
+
+class client_code(client_codeTemplate):
+  def __init__(self, **properties):
+    self.init_components(**properties)
+    # Ambil dashboard dan semua worksheet-nya
+    self.dashboard  = get_dashboard()
+    self.worksheets = self.dashboard.worksheets
+
+  def selection_changed_event_handler(self, event):
+    user_selections = event.worksheet.get_selected_marks()
+    if len(user_selections) != 0:
+        self._data = user_selections
+
+  def btn_submit_click(self, **event_args):
+    # Ketika tombol submit diklik
+    Notification("Mohon Tunggu").show()
+    self.summary.text = ''
+    
+    all_data = {}
+    for ws in self.worksheets:
+      sheet_name = ws.name  # Menggunakan atribut 'name' langsung
+      summary = ws.get_summary_data(ignore_selection=True)
+      all_data[sheet_name] = summary
+
+    dataSummary = anvil.server.call(
+      'generateDataSummary',
+      prompt=self.user_question.text,
+      data=all_data
+    )
+
+    self.summary.visible = True
+    self.summary.text = dataSummary
+
+  def btn_clear_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.summary.text = ''
+    self.user_question.text = ''
+    self._data = ''
+    self.summary.visible = False
