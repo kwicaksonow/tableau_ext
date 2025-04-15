@@ -127,29 +127,29 @@ class client_code(client_codeTemplate):
     self.summary.visible = True
     self.summary.text = dataSummary
 
-  def btn_clear_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.summary.text = ''
-    self.user_question.text = ''
-    self._data = ''
-    self.summary.visible = False
+  # def btn_clear_click(self, **event_args):
+  #   """This method is called when the button is clicked"""
+  #   self.summary.text = ''
+  #   self.user_question.text = ''
+  #   self._data = ''
+  #   self.summary.visible = False
 
-  def user_question1_pressed_enter(self, **event_args):
-    """This method is called when the user presses Enter in this text box"""
-    Notification("Mohon Tunggu").show()
-    self.summary.text = ''
+  # def user_question1_pressed_enter(self, **event_args):
+  #   """This method is called when the user presses Enter in this text box"""
+  #   Notification("Mohon Tunggu").show()
+  #   self.summary.text = ''
     
-    all_data = {}
-    for ws in self.worksheets:
-      sheet_name = ws.name  # Menggunakan atribut 'name' langsung
-      summary = ws.get_summary_data(ignore_selection=True)
-      all_data[sheet_name] = summary
+  #   all_data = {}
+  #   for ws in self.worksheets:
+  #     sheet_name = ws.name  # Menggunakan atribut 'name' langsung
+  #     summary = ws.get_summary_data(ignore_selection=True)
+  #     all_data[sheet_name] = summary
 
-    dataSummary = anvil.server.call(
-      'generateDataSummary',
-      prompt=self.user_question.text,
-      data=all_data
-    )
+  #   dataSummary = anvil.server.call(
+  #     'generateDataSummary',
+  #     prompt=self.user_question.text,
+  #     data=all_data
+  #   )
 
-    self.summary.visible = True
-    self.summary.text = dataSummary
+  #   self.summary.visible = True
+  #   self.summary.text = dataSummary
