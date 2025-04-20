@@ -101,6 +101,12 @@ from trexjacket.api import get_dashboard
 class client_code(client_codeTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
+
+    self.label_1.remove_from_parent()
+    self.image_1.remove_from_parent()
+    self.flow_panel_1.add_component(self.label_1, expand=True)
+    self.flow_panel_1.add_component(self.image_1, expand=True)
+    
     # Ambil dashboard dan semua worksheet-nya
     self.dashboard  = get_dashboard()
     self.worksheets = self.dashboard.worksheets

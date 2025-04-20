@@ -9,7 +9,7 @@ db_schema:
 dependencies:
 - app_id: 4WJSBYGUAK63RAJO
   version: {version_tag: v1.0.0}
-metadata: {title: Tableau Extension Demo}
+metadata: {description: Demo, logo_img: 'asset:01-Logo-Tripa-master-background-transparan-logo.png', title: Tableau Extension Demo}
 name: Tableau Extension Demo (working)
 native_deps: {head_html: ''}
 package_name: Tableau_Extension
