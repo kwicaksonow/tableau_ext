@@ -1,25 +1,24 @@
 components:
-- layout_properties: {grid_position: 'EUVCFJ,TAYUIY'}
-  name: image_1
-  properties:
-    height: '55'
-    horizontal_align: left
-    margin: [null, null, null, 20]
-    source: _/theme/01-Logo-Tripa-master-background-transparan.png
-  type: Image
-- layout_properties: {grid_position: 'YIKPSQ,KHRAGP'}
-  name: label_1
-  properties:
-    bold: true
-    font: helvetica
-    font_size: 19
-    spacing:
-      margin: [14, null, 5, null]
-      padding: [null, null, 7, null]
-    text: Dashboard Agent
-    underline: false
-  type: Label
-- components: []
+- components:
+  - layout_properties: {width: 152.03300000000002}
+    name: image_1
+    properties:
+      height: '55'
+      horizontal_align: left
+      margin: [null, null, null, 20]
+      source: _/theme/01-Logo-Tripa-master-background-transparan.png
+    type: Image
+  - name: label_1
+    properties:
+      bold: true
+      font: helvetica
+      font_size: 19
+      spacing:
+        margin: [14, null, 5, null]
+        padding: [null, null, 7, null]
+      text: Dashboard Agent
+      underline: false
+    type: Label
   layout_properties: {grid_position: 'CAYYQQ,XYWGDL'}
   name: flow_panel_1
   properties: {}
