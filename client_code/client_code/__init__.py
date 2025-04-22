@@ -127,10 +127,15 @@ class client_code(client_codeTemplate):
       summary = ws.get_summary_data(ignore_selection=True)
       all_data[sheet_name] = summary
 
+    # dataSummary = anvil.server.call(
+    #   'generateDataSummary',
+    #   prompt=self.user_question.text,
+    #   data=all_data
+    # )
+
     dataSummary = anvil.server.call(
-      'generateDataSummary',
-      prompt=self.user_question.text,
-      data=all_data
+      'query_database',
+      self.user_question.text
     )
 
     self.summary.visible = True
