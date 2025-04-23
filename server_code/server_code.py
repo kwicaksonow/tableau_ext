@@ -24,41 +24,41 @@ import google.generativeai as genai
 #   return response.text
   
 
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
-import anvil.secrets
-import anvil.server
-import openai
+# import anvil.tables as tables
+# import anvil.tables.query as q
+# from anvil.tables import app_tables
+# import anvil.secrets
+# import anvil.server
+# import openai
 
-# Retrieve your OpenAI API key from Anvil's secrets
-OPENAI_API_KEY = anvil.secrets.get_secret("OPENAI_API_KEY")
-openai.api_key = OPENAI_API_KEY
+# # Retrieve your OpenAI API key from Anvil's secrets
+# OPENAI_API_KEY = anvil.secrets.get_secret("OPENAI_API_KEY")
+# openai.api_key = OPENAI_API_KEY
 
-@anvil.server.callable
-def generateDataSummary(prompt, data):
-    # Construct the system message to guide the model's behavior
-    system_message = {
-        "role": "system",
-        "content": (
-            "You are an expert analyst and know everything about data analysis. "
-            "You are on a mission to provide the best data analysis report when asked. "
-            "You are capable of answering the question without a report as well on topics that require you to answer between a finite set of possibilities. "
-            "You always respond or answer in Bahasa Indonesia despite any language that has been used to ask you."
-        )
-    }
+# @anvil.server.callable
+# def generateDataSummary(prompt, data):
+#     # Construct the system message to guide the model's behavior
+#     system_message = {
+#         "role": "system",
+#         "content": (
+#             "You are an expert analyst and know everything about data analysis. "
+#             "You are on a mission to provide the best data analysis report when asked. "
+#             "You are capable of answering the question without a report as well on topics that require you to answer between a finite set of possibilities. "
+#             "You always respond or answer in Bahasa Indonesia despite any language that has been used to ask you."
+#         )
+#     }
 
-    # Construct the user message with the prompt and data
-    user_message = {
-        "role": "user",
-        "content": f"{prompt}\n\n{data}"
-    }
+#     # Construct the user message with the prompt and data
+#     user_message = {
+#         "role": "user",
+#         "content": f"{prompt}\n\n{data}"
+#     }
 
-    # Call OpenAI's ChatCompletion API
-    response = openai.ChatCompletion.create(
-        model="gpt-4",  # You can use "gpt-3.5-turbo" if you prefer
-        messages=[system_message, user_message]
-    )
+#     # Call OpenAI's ChatCompletion API
+#     response = openai.ChatCompletion.create(
+#         model="gpt-4",  # You can use "gpt-3.5-turbo" if you prefer
+#         messages=[system_message, user_message]
+#     )
 
-    # Extract and return the assistant's reply
-    return response['choices'][0]['message']['content']
+#     # Extract and return the assistant's reply
+#     return response['choices'][0]['message']['content']
