@@ -1,30 +1,31 @@
 components:
 - components:
-  - layout_properties: {width: 152.03300000000002}
+  - layout_properties: {width: 153}
     name: image_1
     properties:
       height: '55'
       horizontal_align: left
-      margin: [null, null, null, 20]
+      margin: [null, null, null, 0]
       source: _/theme/01-Logo-Tripa-master-background-transparan.png
     type: Image
   - layout_properties: {}
     name: label_1
     properties:
+      align: center
       bold: true
       font: Helvetica
-      font_size: 19
+      font_size: 20
       spacing:
-        margin: [14, null, 5, null]
+        margin: [5, null, 5, null]
         padding: [null, null, 7, null]
       spacing_above: small
       spacing_below: small
-      text: Dashboard Agent
+      text: Database Agent
       underline: false
     type: Label
   layout_properties: {grid_position: 'CAYYQQ,XYWGDL'}
   name: flow_panel_1
-  properties: {}
+  properties: {align: center, gap: small, vertical_align: middle}
   type: FlowPanel
 - event_bindings: {pressed_enter: user_question1_pressed_enter}
   layout_properties: {grid_position: 'PCFDLM,EQNUYB'}
@@ -33,16 +34,26 @@ components:
   type: TextBox
 - layout_properties: {grid_position: 'KCOXRP,ZYFVKO'}
   name: user_question
-  properties: {auto_expand: true, placeholder: Ask A Question!, text: ''}
+  properties: {auto_expand: true, bold: true, font: Helvetica, font_size: 15, placeholder: Ask the database here..., text: ''}
   type: TextArea
-- event_bindings: {click: btn_submit_click}
-  layout_properties: {grid_position: 'HMMDGV,XRAGMT'}
-  name: btn_submit
-  properties: {role: primary-button, text: Submit}
-  type: Button
+- components:
+  - event_bindings: {click: btn_submit_click}
+    layout_properties: {}
+    name: btn_submit
+    properties: {bold: true, font: Helvetica, font_size: 15, role: primary-button, text: Submit}
+    type: Button
+  - event_bindings: {click: btn_clear_click}
+    layout_properties: {}
+    name: btn_clear
+    properties: {bold: true, font: Helvetica, font_size: 15, role: secondary-button, text: Clear}
+    type: Button
+  layout_properties: {grid_position: 'ZAGFCQ,LSHKTU'}
+  name: flow_panel_2
+  properties: {align: center}
+  type: FlowPanel
 - layout_properties: {grid_position: 'KUAWBP,XBZIUU'}
   name: summary
-  properties: {text: ''}
+  properties: {bold: true, font: Helvetica, font_size: 15, text: ''}
   type: Label
 container:
   properties: {col_widths: '{}'}

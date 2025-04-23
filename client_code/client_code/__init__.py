@@ -1,20 +1,20 @@
 # ------------- Code to let user select data -------------
 
-# from ._anvil_designer import client_codeTemplate
 # from anvil import *
 # import anvil.server
-# from anvil.tables import app_tables
 # from anvil import tableau
+# from anvil.tables import app_tables
 # from datetime import datetime
 # from trexjacket.api import get_dashboard
-
-# dashboard = get_dashboard()
+# from ._anvil_designer import client_codeTemplate
 
 # class client_code(client_codeTemplate):
 #   def __init__(self, **properties):
 #     self.init_components(**properties)
 #     self.summary.visible = False
-#     dashboard.register_event_handler('selection_changed', self.selection_changed_event_handler)
+#     self.dashboard = get_dashboard()
+#     self.dashboard.register_event_handler('selection_changed', 
+#                                           self.selection_changed_event_handler)
 
 #   def selection_changed_event_handler(self, event):
 #     user_selections = event.worksheet.get_selected_marks()
@@ -26,7 +26,9 @@
 #     msg = "Mohon Tunggu"
 #     Notification(msg).show()
 #     self.summary.text = ''
-#     dataSummary = anvil.server.call('generateDataSummary', prompt=self.user_question.text, data=self._data)
+#     dataSummary = anvil.server.call('generateDataSummary', 
+#                                     prompt=self.user_question.text, 
+#                                     data=self._data)
 #     self.summary.visible = True
 #     self.summary.text = dataSummary
 
@@ -39,7 +41,7 @@
 
 
 
-# Code for named worksheet
+# ------------- Code to pick a worksheet -------------
 
 # from ._anvil_designer import client_codeTemplate
 # from anvil import *
@@ -54,12 +56,7 @@
 #     self.init_components(**properties)
 #     self.dashboard = get_dashboard()
 #     # replace 'Viz' with the name of your worksheet
-#     self.chart     = self.dashboard.get_worksheet('Viz')
-
-#   def selection_changed_event_handler(self, event):
-#     user_selections = event.worksheet.get_selected_marks()
-#     if len(user_selections) != 0:
-#         self._data = user_selections
+#     self.chart = self.dashboard.get_worksheet('Viz')
 
 #   def btn_submit_click(self, **event_args):
 #     Notification("Mohon Tunggu").show()
@@ -67,7 +64,8 @@
 #     # OPTION A: get the aggregated summary data
 #     data = self.chart.get_summary_data()
 #     # OPTION B: get the full, row‑level data
-#     # data = self.chart.get_underlying_data()
+#     data = self.chart.get_underlying_data()
+
 #     dataSummary = anvil.server.call(
 #       'generateDataSummary',
 #       prompt=self.user_question.text,
@@ -85,7 +83,7 @@
 
 
 
-# Code for all worksheet
+# ------------- Code for all worksheet -------------
 
 from ._anvil_designer import client_codeTemplate
 from anvil import *
@@ -99,21 +97,10 @@ from trexjacket.api import get_dashboard
 
 class client_code(client_codeTemplate):
   def __init__(self, **properties):
-    self.init_components(**properties)
-
-    self.label_1.remove_from_parent()
-    self.image_1.remove_from_parent()
-    self.flow_panel_1.add_component(self.label_1, expand=True)
-    self.flow_panel_1.add_component(self.image_1, expand=True)
-    
+    self.init_components(**properties)   
     # Ambil dashboard dan semua worksheet-nya
     self.dashboard  = get_dashboard()
     self.worksheets = self.dashboard.worksheets
-
-  def selection_changed_event_handler(self, event):
-    user_selections = event.worksheet.get_selected_marks()
-    if len(user_selections) != 0:
-        self._data = user_selections
 
   def btn_submit_click(self, **event_args):
     # Ketika tombol submit diklik
@@ -126,12 +113,6 @@ class client_code(client_codeTemplate):
       summary = ws.get_summary_data(ignore_selection=True)
       all_data[sheet_name] = summary
 
-    # dataSummary = anvil.server.call(
-    #   'generateDataSummary',
-    #   prompt=self.user_question.text,
-    #   data=all_data
-    # )
-
     dataSummary = anvil.server.call(
       'query_database',
       self.user_question.text
@@ -140,12 +121,12 @@ class client_code(client_codeTemplate):
     self.summary.visible = True
     self.summary.text = dataSummary
 
-  # def btn_clear_click(self, **event_args):
-  #   """This method is called when the button is clicked"""
-  #   self.summary.text = ''
-  #   self.user_question.text = ''
-  #   self._data = ''
-  #   self.summary.visible = False
+  def btn_clear_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.summary.text = ''
+    self.user_question.text = ''
+    self._data = ''
+    self.summary.visible = True
 
   # def user_question1_pressed_enter(self, **event_args):
   #   """This method is called when the user presses Enter in this text box"""

@@ -167,3 +167,5 @@ roles:
   name: line
 - components: [DropDown]
   name: text
+- components: [Label]
+  name: hr
