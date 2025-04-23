@@ -1,9 +1,9 @@
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
-import anvil.secrets
-import anvil.server
-import google.generativeai as genai
+# import anvil.tables as tables
+# import anvil.tables.query as q
+# from anvil.tables import app_tables
+# import anvil.secrets
+# import anvil.server
+# import google.generativeai as genai
 
 # GOOGLE_API_KEY = anvil.secrets.get_secret("GEMINI_API")
 # genai.configure(api_key=GOOGLE_API_KEY)
