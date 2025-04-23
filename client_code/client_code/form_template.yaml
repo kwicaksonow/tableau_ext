@@ -8,14 +8,17 @@ components:
       margin: [null, null, null, 20]
       source: _/theme/01-Logo-Tripa-master-background-transparan.png
     type: Image
-  - name: label_1
+  - layout_properties: {}
+    name: label_1
     properties:
       bold: true
-      font: helvetica
+      font: Helvetica
       font_size: 19
       spacing:
         margin: [14, null, 5, null]
         padding: [null, null, 7, null]
+      spacing_above: small
+      spacing_below: small
       text: Dashboard Agent
       underline: false
     type: Label
