@@ -163,3 +163,22 @@ select.form-control {
   border: 1px solid #2B303A;
   border-radius: 10px;
 }
+
+/* Custom made for horizontal rule */
+.anvil-role-hr.anvil-label {
+  display: flex;
+  flex-direction: row;
+}
+.anvil-role-hr.anvil-label:before, .anvil-role-hr.anvil-label:after{
+  content: "";
+  flex: 1 1;
+  border-bottom: 2px solid;
+  margin: auto;
+}
+.anvil-role-hr.anvil-label:before {
+  margin-right: 10px
+}
+.anvil-role-hr.anvil-label:after {
+  margin-left: 10px
+}
+/* Custom made for horizontal rule */

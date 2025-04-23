@@ -85,11 +85,60 @@
 
 # ------------- Code for all worksheet -------------
 
+# from ._anvil_designer import client_codeTemplate
+# from anvil import *
+# import anvil.tables as tables
+# import anvil.tables.query as q
+# from anvil.tables import app_tables
+# import anvil.server
+# from anvil import tableau
+# from datetime import datetime
+# from trexjacket.api import get_dashboard
+
+# # Setup class untuk UI dalam client_code de
+# class client_code(client_codeTemplate):
+#   # Setup konstruktor
+#   def __init__(self, **properties):
+#     self.init_components(**properties)
+#     # Ambil dashboard dan semua worksheet-nya
+#     self.dashboard  = get_dashboard()
+#     self.worksheets = self.dashboard.worksheets
+
+#   def btn_submit_click(self, **event_args):
+#     # Ketika tombol submit diklik
+#     Notification("Mohon Tunggu").show()
+#     self.summary.text = ''
+    
+#     all_data = {}
+#     for ws in self.worksheets:
+#       sheet_name = ws.name  # Menggunakan atribut 'name' langsung
+#       # OPTION A: get the aggregated summary data
+#       # summary = ws.get_summary_data(ignore_selection=True)
+#       summary = ws.get_summary_data()
+#       # OPTION B: get the full, row‑level data
+#       # summary = ws.get_underlying_data()
+#       all_data[sheet_name] = summary
+
+#     dataSummary = anvil.server.call('generateDataSummary',
+#                                     prompt=self.user_question.text,
+#                                     data=all_data)
+
+#     self.summary.visible = True
+#     self.summary.text = dataSummary
+
+#   def btn_clear_click(self, **event_args):
+#     """This method is called when the button is clicked"""
+#     self.summary.text = ''
+#     self.user_question.text = ''
+#     self._data = ''
+#     self.summary.visible = True
+
+
+    
+# ------------- Code for ask the database -------------
+
 from ._anvil_designer import client_codeTemplate
 from anvil import *
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
 import anvil.server
 from anvil import tableau
 from datetime import datetime

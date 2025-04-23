@@ -6,7 +6,7 @@ components:
       height: '55'
       horizontal_align: left
       margin: [null, null, null, 0]
-      source: _/theme/01-Logo-Tripa-master-background-transparan.png
+      source: _/theme/01-Logo-Tripa-master-background-transparan-logo.png
     type: Image
   - layout_properties: {}
     name: label_1
@@ -51,6 +51,10 @@ components:
   name: flow_panel_2
   properties: {align: center}
   type: FlowPanel
+- layout_properties: {grid_position: 'MNKSVH,ONIDAX'}
+  name: label_2
+  properties: {bold: true, font: Helvetica, font_size: 15, role: hr, text: Answer}
+  type: Label
 - layout_properties: {grid_position: 'KUAWBP,XBZIUU'}
   name: summary
   properties: {bold: true, font: Helvetica, font_size: 15, text: ''}
