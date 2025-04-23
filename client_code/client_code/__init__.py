@@ -93,7 +93,6 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
-from anvil.tables import app_tables
 from anvil import tableau
 from datetime import datetime
 from trexjacket.api import get_dashboard
