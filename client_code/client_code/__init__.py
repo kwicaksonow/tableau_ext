@@ -1,4 +1,4 @@
-# Code for user to select data
+# ------------- Code to let user select data -------------
 
 # from ._anvil_designer import client_codeTemplate
 # from anvil import *
