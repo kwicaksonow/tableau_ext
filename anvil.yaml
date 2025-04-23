@@ -22,7 +22,7 @@ runtime_options:
 secrets:
   GEMINI_API:
     type: secret
-    value: {FY36HMKLSZDTSL7D: zfo7usS0+RcakwiabTQAFeVhJTpjU9VVMjdsohpcNXMAPtPFx4zFCPuWwL6kua/mYLjoEeF3DzoJuMz7LO8It7vywi/9s78c0YZvcKcObo5jR1yFxtsYdD9HzdNWUGDrV0dg4ANCXUOymZiFSAES6llORCGX/coejoW7WwiqbIu9vtXLolM=, QWAAODCYEVD7JSW5: lUCQSzmSjTDo98Eo/oB091Xqy+5eVjdXfYw1jPmsLhcX0aCC4ax+LNoDLhwGj5yNc2bEne8HlgtamSRBVYh5rmoGvFnaWQ+lJHrRFwt2xJNhEt9qmTf1ubSyAQbhHplgJinPHCpckzVgXiqYV+IX7LkmDfwHkJ+dOhbCU1ln0z/UJrTCpEU=}
+    value: {FY36HMKLSZDTSL7D: bL7azFDii26K+gMoIjd/hgw0sd5NPdRzZX2dwA7mhdwrlJePwvw5ZyGVPlgEh1oQYEaXp7wWjK1yq2p7o5IqgYKIV2k9kmXSur+ugpP8mTzYPGOQGW3SfiMkU/lWDbfckXWCRD/zx++2IWVi0chpb+G0upQyxGpt48dG2FslnUgLa3COMSg=, QWAAODCYEVD7JSW5: lUCQSzmSjTDo98Eo/oB091Xqy+5eVjdXfYw1jPmsLhcX0aCC4ax+LNoDLhwGj5yNc2bEne8HlgtamSRBVYh5rmoGvFnaWQ+lJHrRFwt2xJNhEt9qmTf1ubSyAQbhHplgJinPHCpckzVgXiqYV+IX7LkmDfwHkJ+dOhbCU1ln0z/UJrTCpEU=}
 services:
 - client_config: {}
   server_config: {}
