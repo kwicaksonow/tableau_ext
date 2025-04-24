@@ -20,7 +20,7 @@ components:
         padding: [null, null, 7, null]
       spacing_above: small
       spacing_below: small
-      text: Database Agent
+      text: Database Agent - GL
       underline: false
     type: Label
   layout_properties: {grid_position: 'CAYYQQ,XYWGDL'}
